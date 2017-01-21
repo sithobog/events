@@ -20,6 +20,7 @@ config/*.yml
 .versions.conf
 .DS_Store
 .bak
+.byebug_history
 
 REVISION
 config/logrotate-config

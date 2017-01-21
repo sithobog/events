@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,25 +24,37 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "omniauth-google-oauth2"
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'devise', '4.2.0'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'slim'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'dotenv-rails'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 3.4.2'
+  gem 'database_cleaner', '~> 1.4.1'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'webmock', '~> 2.1'
+  gem 'fuubar'
+  gem 'api_matchers', '~> 0.6.2'
+  gem 'rspec-activejob'
+  gem 'rspec-nc'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'letter_opener'
+  gem 'better_errors'
+  gem 'sextant'
+  gem 'annotate'
+  gem 'thin'
+  gem 'binding_of_caller'
+  gem 'hirb'
+  gem 'table_print'
+  gem 'http_logger'
+  gem 'quiet_assets', '~> 1.1'
 end
 
