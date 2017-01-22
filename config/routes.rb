@@ -6,5 +6,11 @@ Rails.application.routes.draw do
     delete 'auth/sign_out', to: 'devise_token_auth/sessions#destroy', as: :destroy_user_session
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :events, only: [:index, :create, :show, :update, :destroy]
+    end
+  end
+
   root to: "home#index"
 end

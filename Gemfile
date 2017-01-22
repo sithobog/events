@@ -28,6 +28,10 @@ gem 'devise', '4.2.0'
 
 gem 'devise_token_auth'
 
+gem 'active_hash_relation'
+
+gem 'active_model_serializers'
+
 gem 'slim'
 
 group :development, :test do
