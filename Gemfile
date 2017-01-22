@@ -26,6 +26,8 @@ gem "omniauth-google-oauth2"
 
 gem 'devise', '4.2.0'
 
+gem 'devise_token_auth'
+
 gem 'slim'
 
 group :development, :test do

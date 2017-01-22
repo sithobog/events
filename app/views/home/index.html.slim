@@ -1,5 +1,2 @@
-- if user_signed_in?
-  h2 Hello, #{current_user.name}
-  = link_to 'Log out', destroy_user_session_path, method: :delete
-- else
-  = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
+button.signup Log in
+button.logout Log out
