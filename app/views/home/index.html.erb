@@ -1,0 +1,19 @@
+<!-- <div class='header'>
+  <button class='signup'>Log in</button>
+  <button class='logout'>Log out</button>
+</div>
+
+<div class='main'>  
+  <button class='single_event'>Show event</button>
+  <button class='all_events'>All events</button>
+  <button class='create_event'>Create Event</button>
+  <button class='update_event'>Update Event</button>
+  <button class='destroy_event'>Destroy Event</button>
+</div> -->
+
+<div id="app">
+  <p>
+    <router-link to="/index">Index</router-link>
+  </p>
+  <router-view v-bind:event_id=$route.params.event_id></router-view>
+</div>
