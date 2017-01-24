@@ -21,27 +21,29 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
   def create
-    event = Event.new(create_params)
+    @event = Event.new(create_params)
     create_picture
     user = current_user
-    user.events << event
+    user.events << @event
 
-    if event.valid?
+    if @event.valid?
       user.save!
-      render(json: Api::V1::EventSerializer.new(event).to_json, status: 201)
+      render(json: Api::V1::EventSerializer.new(@event).to_json, status: 201)
     else
-      render(json: { errors: event.errors }, status: 422)
+      render(json: { errors: @event.errors }, status: 422)
     end
   end
 
   def update
-    event = Event.find(params[:id])
-    authorize event
+    @event = Event.find(params[:id])
+    authorize @event
 
-    if event.update_attributes(update_params)
-      render(json: Api::V1::EventSerializer.new(event).to_json, status: 200)
+    update_picture
+
+    if @event.update_attributes(update_params)
+      render(json: Api::V1::EventSerializer.new(@event).to_json, status: 200)
     else
-      render(json: { errors: event.errors }, status: 422)
+      render(json: { errors: @event.errors }, status: 422)
     end
 
   end
@@ -57,10 +59,18 @@ class Api::V1::EventsController < Api::V1::BaseController
   private
 
   def create_picture
+    if params[:picture]
+      picture_params = params[:picture]
+      @event.add_picture(picture_params[:file_data], picture_params[:file_name])
+    end
+  end
+
+  def update_picture
+    create_picture
   end
 
   def create_params
-    params.require(:event).permit(:date, :place, :purpose, :description)
+    params.require(:event).permit(:date, :place, :purpose, :description, :picture)
   end
 
   def update_params

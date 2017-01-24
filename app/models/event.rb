@@ -13,4 +13,10 @@ class Event < ActiveRecord::Base
   def check_date
     errors.add(:date, :invalid, message: "must be in future!") if date < DateTime.now
   end
+
+  def add_picture(picture_64, picture_name)
+    picture_data                   = Paperclip.io_adapters.for(picture_64)
+    picture_data.original_filename = picture_name
+    self.picture = picture_data
+  end
 end

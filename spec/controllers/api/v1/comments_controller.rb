@@ -102,5 +102,4 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
       expect(response.body).to have_node(:author).including_text("can't be blank")
     end
   end
-
 end
