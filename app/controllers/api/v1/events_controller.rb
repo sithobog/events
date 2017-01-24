@@ -3,6 +3,7 @@ class Api::V1::EventsController < Api::V1::BaseController
 
   def show
     event = Event.find(params[:id])
+    authorize event
 
     render(json: Api::V1::EventSerializer.new(event).to_json)
   end
@@ -21,6 +22,7 @@ class Api::V1::EventsController < Api::V1::BaseController
 
   def create
     event = Event.new(create_params)
+    create_picture
     #return api_error(status: 422, errors: event.errors) unless event.valid?
     user = current_user
     user.events << event
@@ -34,6 +36,7 @@ class Api::V1::EventsController < Api::V1::BaseController
 
   def update
     event = Event.find(params[:id])
+    authorize event
 
     if !event.update_attributes(update_params)
       #return api_error(status: 422, errors: event.errors)
@@ -44,12 +47,16 @@ class Api::V1::EventsController < Api::V1::BaseController
 
   def destroy
     event = Event.find(params[:id])
+    authorize event
     event.destroy
 
     head status: 204
   end
 
   private
+
+  def create_picture
+  end
 
   def create_params
     params.require(:event).permit(:date, :place, :purpose, :description)

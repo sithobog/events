@@ -35,6 +35,10 @@ gem 'active_model_serializers'
 
 gem 'slim'
 
+gem "paperclip", "~> 5.0.0"
+
+gem "pundit"
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
