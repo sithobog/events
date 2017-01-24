@@ -23,26 +23,27 @@ class Api::V1::EventsController < Api::V1::BaseController
   def create
     event = Event.new(create_params)
     create_picture
-    #return api_error(status: 422, errors: event.errors) unless event.valid?
     user = current_user
     user.events << event
-    user.save!
 
-    render(
-      json: Api::V1::EventSerializer.new(event).to_json,
-      status: 201,
-    )
+    if event.valid?
+      user.save!
+      render(json: Api::V1::EventSerializer.new(event).to_json, status: 201)
+    else
+      render(json: { errors: event.errors }, status: 422)
+    end
   end
 
   def update
     event = Event.find(params[:id])
     authorize event
 
-    if !event.update_attributes(update_params)
-      #return api_error(status: 422, errors: event.errors)
+    if event.update_attributes(update_params)
+      render(json: Api::V1::EventSerializer.new(event).to_json, status: 200)
+    else
+      render(json: { errors: event.errors }, status: 422)
     end
 
-    render(json: Api::V1::EventSerializer.new(event).to_json, status: 200)
   end
 
   def destroy

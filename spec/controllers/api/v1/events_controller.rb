@@ -107,4 +107,30 @@ RSpec.describe Api::V1::EventsController, type: :controller do
       expect(response.status).to eq 403
     end
   end
+
+  context 'invalid event data' do
+    let(:event_params) { FactoryGirl.attributes_for(:event, user: user, place: nil) }
+    before(:each) do
+      User.destroy_all # have to coz something wrong with token generation in spec:/
+      request.headers.merge! user.create_new_auth_token
+    end
+
+    it 'returns erros on create' do
+      expect{ post :create, event: event_params}.not_to change(Event, :count)
+
+      expect(response.status).to eq 422
+      expect(response.body).to have_node(:errors)
+      expect(response.body).to have_node(:place).including_text("can't be blank")
+    end
+
+    it 'updates' do
+      expect{
+        put :update, id: event.id, event: event_params
+        event.reload
+      }.not_to change{ event.place }
+
+      expect(response.status).to eq 422
+      expect(response.body).to have_node(:place).including_text("can't be blank")
+    end
+  end
 end

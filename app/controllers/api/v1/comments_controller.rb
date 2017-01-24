@@ -22,24 +22,24 @@ class Api::V1::CommentsController < Api::V1::BaseController
   def create
     event = Event.find(params[:event_id])
     comment = Comment.new(create_params)
-    #return api_error(status: 422, errors: event.errors) unless comment.valid?
     event.comments << comment
-    event.save!
 
-    render(
-      json: Api::V1::CommentSerializer.new(comment).to_json,
-      status: 201,
-    )
+    if comment.valid?
+      event.save!
+      render(json: Api::V1::CommentSerializer.new(comment).to_json, status: 201)
+    else
+      render(json: { errors: comment.errors }, status: 422)
+    end
   end
 
   def update
     comment = Comment.find(params[:id])
 
-    if !comment.update_attributes(update_params)
-      #return api_error(status: 422, errors: comment.errors)
+    if comment.update_attributes(update_params)
+      render(json: Api::V1::CommentSerializer.new(comment).to_json, status: 200)
+    else
+      render(json: { errors: comment.errors }, status: 422)
     end
-
-    render(json: Api::V1::CommentSerializer.new(comment).to_json, status: 200)
   end
 
   def destroy

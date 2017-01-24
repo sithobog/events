@@ -75,4 +75,32 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
       expect(comment.content).to eq(updated_comment[:content])
     end
   end
+
+  context 'invalid event data' do
+    let(:comment_params) { FactoryGirl.attributes_for(:comment, author: nil) }
+    before(:each) do
+      User.destroy_all # have to coz something wrong with token generation in spec:/
+      request.headers.merge! user.create_new_auth_token
+    end
+
+    it 'returns errors on create' do
+      expect{ post :create, comment: comment_params, event_id: event.id }.not_to change(Comment, :count)
+
+      expect(response.status).to eq 422
+      expect(response.body).to have_node(:errors)
+      expect(response.body).to have_node(:author).including_text("can't be blank")
+    end
+
+    it 'returns errors on update' do
+      expect{
+        put :update, id: comment.id, comment: comment_params, event_id: event.id
+        comment.reload
+      }.to change{ comment.updated_at }
+
+      expect(response.status).to eq 422
+      expect(response.body).to have_node(:errors)
+      expect(response.body).to have_node(:author).including_text("can't be blank")
+    end
+  end
+
 end
