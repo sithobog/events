@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div id='container'>
+          <h4><a href='#comments'>Comments</a></h4>
+  <ul>
+      <li><a href='#comments-show'>show</a></li>
+      <li><a href='#comments-index'>index</a></li>
+      <li><a href='#comments-create'>create</a></li>
+      <li><a href='#comments-update'>update</a></li>
+      <li><a href='#comments-destroy'>destroy</a></li>
+  </ul>
+  <h4><a href='#event_invites'>Event invites</a></h4>
+  <ul>
+      <li><a href='#event_invites-create'>create</a></li>
+  </ul>
+  <h4><a href='#events'>Events</a></h4>
+  <ul>
+      <li><a href='#events-show'>show</a></li>
+      <li><a href='#events-index'>index</a></li>
+      <li><a href='#events-create'>create</a></li>
+      <li><a href='#events-update'>update</a></li>
+      <li><a href='#events-destroy'>destroy</a></li>
+  </ul>
+  <h4><a href='#omniauth_callbacks'>Omniauth callbacks</a></h4>
+  <ul>
+      <li><a href='#omniauth_callbacks-redirect_callbacks'>redirect_callbacks</a></li>
+      <li><a href='#omniauth_callbacks-omniauth_success'>omniauth_success</a></li>
+  </ul>
+
+
+
+<div>Another API description</div>
+
+<hr>
+
+
+  <ul class='breadcrumb'  id='comments'>
+    <li><a href='#'>EventManager</a><span class='divider'>/</span></li>
+    <li class='active'>Comments</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#comments'>Comments</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='comments-show'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#comments'>Comments</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>show</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#comments-show'>
+              GET /api/v1/events/:event_id/comments/:id
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Return comment</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+			<tr>
+				<td><span class="label label-important"> 422 </span></td>
+				<td>Unprocessable entity</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Comment id</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Integer</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='comments-index'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#comments'>Comments</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#comments-index'>
+              GET /api/v1/events/:event_id/comments
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Return all comments for event</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Event id</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Integer</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='comments-create'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#comments'>Comments</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>create</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#comments-create'>
+              POST /api/v1/events/:event_id/comments
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Create new comment</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+			<tr>
+				<td><span class="label label-important"> 422 </span></td>
+				<td>Unprocessable entity</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>event_id </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Event id</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Integer</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>comment </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Hash</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>comment[author] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>comment[content] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='comments-update'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#comments'>Comments</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>update</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#comments-update'>
+              PATCH /api/v1/events/:event_id/comments/:id
+            </a><br>
+            <small></small>
+          </h3>
+          <h3>
+            <a href='#comments-update'>
+              PUT /api/v1/events/:event_id/comments/:id
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Update comment</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+			<tr>
+				<td><span class="label label-important"> 422 </span></td>
+				<td>Unprocessable entity</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>event_id </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Event id</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Integer</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>comment </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Hash</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>comment[author] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>comment[content] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='comments-destroy'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#comments'>Comments</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>destroy</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#comments-destroy'>
+              DELETE /api/v1/events/:event_id/comments/:id
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Destroy comment</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Comment id</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Integer</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='event_invites'>
+    <li><a href='#'>EventManager</a><span class='divider'>/</span></li>
+    <li class='active'>Event invites</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#event_invites'>Event invites</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='event_invites-create'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#event_invites'>Event invites</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>create</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#event_invites-create'>
+              POST /api/v1/events/:event_id/event_invites
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Create new invitation</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+			<tr>
+				<td><span class="label label-important"> 422 </span></td>
+				<td>Unprocessable entity</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>event_id </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Event id</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Integer</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>event_invite </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Hash</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event_invite[user_id] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+
+            </tbody>
+          </table>
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='events'>
+    <li><a href='#'>EventManager</a><span class='divider'>/</span></li>
+    <li class='active'>Events</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#events'>Events</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='events-show'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#events'>Events</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>show</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#events-show'>
+              GET /api/v1/events/:id
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Return event with comments</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+			<tr>
+				<td><span class="label label-important"> 422 </span></td>
+				<td>Unprocessable entity</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Event id</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Integer</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='events-index'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#events'>Events</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>index</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#events-index'>
+              GET /api/v1/events
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Return all available for users events</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>due </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Event for specific date (timestamp)</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>interval </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Events in interval from current day. Formats: number + letter. &#39;d&#39;
+- day;</p>
+
+<pre>&#39;w&#39; - week; &#39;m&#39; - month; &#39;y&#39; - year. Example: &#39;10y&#39; - interval in 10 years.</pre>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='events-create'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#events'>Events</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>create</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#events-create'>
+              POST /api/v1/events
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Create new event and picture</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+			<tr>
+				<td><span class="label label-important"> 422 </span></td>
+				<td>Unprocessable entity</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>event </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Hash</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event[place] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event[purpose] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event[date] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Date</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event[description] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>picture </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Hash</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>picture[file_data] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Base64 image</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>picture[file_name] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Image filename</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='events-update'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#events'>Events</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>update</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#events-update'>
+              PATCH /api/v1/events/:id
+            </a><br>
+            <small></small>
+          </h3>
+          <h3>
+            <a href='#events-update'>
+              PUT /api/v1/events/:id
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Update event and picture</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+			<tr>
+				<td><span class="label label-important"> 422 </span></td>
+				<td>Unprocessable entity</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>event </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Hash</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event[place] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event[purpose] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event[date] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Date</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>event[description] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>picture </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Hash</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>picture[file_data] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Base64 image</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>picture[file_name] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Image filename</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='events-destroy'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#events'>Events</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>destroy</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#events-destroy'>
+              DELETE /api/v1/events/:id
+            </a><br>
+            <small></small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Destroy event</p>
+
+
+          <h2>Errors</h2>
+          
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Code</th>
+			<th>Description</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<td><span class="label label-warning"> 401 </span></td>
+				<td>Unauthorized</td>
+			</tr>
+			<tr>
+				<td><span class="label label-warning2"> 403 </span></td>
+				<td>Forbidden</td>
+			</tr>
+	</tbody>
+</table>
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Event id</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be Integer</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+  </div>
+
+  <ul class='breadcrumb'  id='omniauth_callbacks'>
+    <li><a href='#'>EventManager</a><span class='divider'>/</span></li>
+    <li class='active'>Omniauth callbacks</li>
+  </ul>
+
+  <div class='page-header'>
+    <h1>
+      <a href='#omniauth_callbacks'>Omniauth callbacks</a><br>
+      <small></small>
+    </h1>
+  </div>
+
+
+  <div class='accordion' id='accordion'>
+
+      <hr>
+
+      <ul class='breadcrumb' id='omniauth_callbacks-redirect_callbacks'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#omniauth_callbacks'>Omniauth callbacks</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>redirect_callbacks</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#omniauth_callbacks-redirect_callbacks'>
+              GET /api/v1/auth/:provider/callback
+            </a><br>
+            <small>Parse hash from omniauth</small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Parse hash from omniauth</p>
+
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>provider </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Social provider</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>code </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Returned by OAuth2</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>state </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Returned by OAuth2</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+      <hr>
+
+      <ul class='breadcrumb' id='omniauth_callbacks-omniauth_success'>
+        <li>
+          <a href='#'>EventManager</a>
+          <span class='divider'>/</span>
+        </li>
+        <li>
+          <a href='#omniauth_callbacks'>Omniauth callbacks</a>
+          <span class='divider'>/</span>
+        </li>
+        <li class='active'>omniauth_success</li>
+      </ul>
+
+      <div>
+          <h3>
+            <a href='#omniauth_callbacks-omniauth_success'>
+              GET /api/omniauth/:provider/callback
+            </a><br>
+            <small>Get response from OAuth2</small>
+          </h3>
+      </div>
+
+      <div>
+        
+<p>Authentication via social networks. Create/update users by provider and uid</p>
+
+
+
+          <h2>Params</h2>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Param name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>provider </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Social provider</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be String</p>
+</li>
+        </ul>
+
+    </td>
+
+  </tr>
+
+  
+
+            </tbody>
+          </table>
+      </div>
+  </div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer></footer>
+  </div>
+  <script type='text/javascript' src='./apidoc/javascripts/bundled/jquery.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

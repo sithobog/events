@@ -1,0 +1,1141 @@
+  <h4><a href='#comments'>Comments</a></h4>
+  <ul>
+      <li><a href='#comments-show'>show</a></li>
+      <li><a href='#comments-index'>index</a></li>
+      <li><a href='#comments-create'>create</a></li>
+      <li><a href='#comments-update'>update</a></li>
+      <li><a href='#comments-destroy'>destroy</a></li>
+  </ul>
+  <h4><a href='#event_invites'>Event invites</a></h4>
+  <ul>
+      <li><a href='#event_invites-create'>create</a></li>
+  </ul>
+  <h4><a href='#events'>Events</a></h4>
+  <ul>
+      <li><a href='#events-show'>show</a></li>
+      <li><a href='#events-index'>index</a></li>
+      <li><a href='#events-create'>create</a></li>
+      <li><a href='#events-update'>update</a></li>
+      <li><a href='#events-destroy'>destroy</a></li>
+  </ul>
+  <h4><a href='#omniauth_callbacks'>Omniauth callbacks</a></h4>
+  <ul>
+      <li><a href='#omniauth_callbacks-redirect_callbacks'>redirect_callbacks</a></li>
+      <li><a href='#omniauth_callbacks-omniauth_success'>omniauth_success</a></li>
+  </ul>
+
+
+
+  <hr/>
+
+  <div>
+    <h2 id="comments">
+      <a href='#comments'>Comments</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="comments-show">
+      <a href='#comments'>Comments</a> / <a href='#comments-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/events/:event_id/comments/:id
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Return comment</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            422
+            Unprocessable entity
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>Comment id</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="comments-index">
+      <a href='#comments'>Comments</a> / <a href='#comments-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/events/:event_id/comments
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Return all comments for event</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>Event id</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="comments-create">
+      <a href='#comments'>Comments</a> / <a href='#comments-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/events/:event_id/comments
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Create new comment</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            422
+            Unprocessable entity
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>event_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>Event id</p>
+
+    </li>
+    
+    <li>
+      <strong>comment </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>author </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>content </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="comments-update">
+      <a href='#comments'>Comments</a> / <a href='#comments-update'>update</a>
+      </h3>
+
+      <div>
+          <h4>
+              PATCH /api/v1/events/:event_id/comments/:id
+            <br>
+            <small></small>
+          </h4>
+          <h4>
+              PUT /api/v1/events/:event_id/comments/:id
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Update comment</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            422
+            Unprocessable entity
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>event_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>Event id</p>
+
+    </li>
+    
+    <li>
+      <strong>comment </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>author </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>content </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="comments-destroy">
+      <a href='#comments'>Comments</a> / <a href='#comments-destroy'>destroy</a>
+      </h3>
+
+      <div>
+          <h4>
+              DELETE /api/v1/events/:event_id/comments/:id
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Destroy comment</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>Comment id</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="event_invites">
+      <a href='#event_invites'>Event invites</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="event_invites-create">
+      <a href='#event_invites'>Event invites</a> / <a href='#event_invites-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/events/:event_id/event_invites
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Create new invitation</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            422
+            Unprocessable entity
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>event_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>Event id</p>
+
+    </li>
+    
+    <li>
+      <strong>event_invite </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>user_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="events">
+      <a href='#events'>Events</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="events-show">
+      <a href='#events'>Events</a> / <a href='#events-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/events/:id
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Return event with comments</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            422
+            Unprocessable entity
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>Event id</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="events-index">
+      <a href='#events'>Events</a> / <a href='#events-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/events
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Return all available for users events</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>due </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Event for specific date (timestamp)</p>
+
+    </li>
+    
+    <li>
+      <strong>interval </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Events in interval from current day. Formats: number + letter. &#39;d&#39;
+- day;</p>
+
+<pre>&#39;w&#39; - week; &#39;m&#39; - month; &#39;y&#39; - year. Example: &#39;10y&#39; - interval in 10 years.</pre>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="events-create">
+      <a href='#events'>Events</a> / <a href='#events-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/events
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Create new event and picture</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            422
+            Unprocessable entity
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>event </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>place </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>purpose </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>date </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Date</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>description </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+</ul>
+
+    <li>
+      <strong>picture </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>file_data </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Base64 image</p>
+
+    </li>
+    
+    <li>
+      <strong>file_name </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Image filename</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="events-update">
+      <a href='#events'>Events</a> / <a href='#events-update'>update</a>
+      </h3>
+
+      <div>
+          <h4>
+              PATCH /api/v1/events/:id
+            <br>
+            <small></small>
+          </h4>
+          <h4>
+              PUT /api/v1/events/:id
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Update event and picture</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            422
+            Unprocessable entity
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>event </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>place </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>purpose </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>date </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Date</p>
+ ]
+      </small>
+      
+    </li>
+    
+    <li>
+      <strong>description </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+    </li>
+    
+</ul>
+
+    <li>
+      <strong>picture </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+    </li>
+    <ul>
+    <li>
+      <strong>file_data </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Base64 image</p>
+
+    </li>
+    
+    <li>
+      <strong>file_name </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Image filename</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="events-destroy">
+      <a href='#events'>Events</a> / <a href='#events-destroy'>destroy</a>
+      </h3>
+
+      <div>
+          <h4>
+              DELETE /api/v1/events/:id
+            <br>
+            <small></small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Destroy event</p>
+
+
+          <h4>Errors</h4>
+            401
+            Unauthorized
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+            403
+            Forbidden
+            <pre class="prettyprint lang-yaml">--- 
+...
+</pre>
+
+            <br>
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be Integer</p>
+ ]
+      </small>
+      
+<p>Event id</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="omniauth_callbacks">
+      <a href='#omniauth_callbacks'>Omniauth callbacks</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="omniauth_callbacks-redirect_callbacks">
+      <a href='#omniauth_callbacks'>Omniauth callbacks</a> / <a href='#omniauth_callbacks-redirect_callbacks'>redirect_callbacks</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/auth/:provider/callback
+            <br>
+            <small>Parse hash from omniauth</small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Parse hash from omniauth</p>
+
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>provider </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Social provider</p>
+
+    </li>
+    
+    <li>
+      <strong>code </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Returned by OAuth2</p>
+
+    </li>
+    
+    <li>
+      <strong>state </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Returned by OAuth2</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="omniauth_callbacks-omniauth_success">
+      <a href='#omniauth_callbacks'>Omniauth callbacks</a> / <a href='#omniauth_callbacks-omniauth_success'>omniauth_success</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/omniauth/:provider/callback
+            <br>
+            <small>Get response from OAuth2</small>
+          </h4>
+      </div>
+
+      <div>
+        
+<p>Authentication via social networks. Create/update users by provider and uid</p>
+
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>provider </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be String</p>
+ ]
+      </small>
+      
+<p>Social provider</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+  </div>
