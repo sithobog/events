@@ -9,12 +9,13 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
   def index
-    events = Event.all
+    events = Event.filter(params, current_user)
 
     render(
       json: ActiveModel::Serializer::CollectionSerializer.new(
         events,
         serializer: Api::V1::EventSerializer,
+        include: [:comments],
         root: 'events'
       )
     )

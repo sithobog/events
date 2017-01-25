@@ -19,6 +19,12 @@ RSpec.describe Api::V1::EventsController, type: :controller do
       expect(response.status).to eq 401
     end
 
+    it 'index' do
+      get :index
+
+      expect(response.status).to eq 401
+    end
+
     it 'creates' do
       expect{ post :create, event: updated_event}.not_to change(Event, :count)
 
@@ -50,6 +56,13 @@ RSpec.describe Api::V1::EventsController, type: :controller do
 
     it 'shows' do
       get :show, { id: event.id }
+
+      expect(response.status).to eq 200
+    end
+
+    it 'index' do
+      event
+      get :index
 
       expect(response.status).to eq 200
     end
@@ -166,4 +179,83 @@ RSpec.describe Api::V1::EventsController, type: :controller do
       expect(response.status).to eq 200
     end
   end
+
+  context 'with filter params' do
+    before(:each) do
+      Event.destroy_all
+      User.destroy_all # have to coz something wrong with token generation in spec:/
+      request.headers.merge! user.create_new_auth_token
+    end
+    let!(:events) { FactoryGirl.create_list(:event, 10, user: user)}
+
+    it 'index with due' do
+      specific_date = Date.new(2020,10,10)
+      expect(Event.count).to eq events.length
+
+      FactoryGirl.create(:event, user: user, date: specific_date)
+
+      get :index, due: specific_date.to_time.to_i
+
+      suitable_events = JSON.parse(response.body)
+
+      expect(suitable_events.length).to eq 1
+
+      expect(response.status).to eq 200
+    end
+
+    it 'index with interval' do
+      expect(Event.count).to eq events.length
+      # this dates are out of interval
+      specific_date_1 = DateTime.now + 15.weeks
+      specific_date_2 = DateTime.now + 11.weeks
+
+      FactoryGirl.create(:event, user: user, date: specific_date_1)
+      FactoryGirl.create(:event, user: user, date: specific_date_2)
+
+      get :index, interval: '10w'
+
+      suitable_events = JSON.parse(response.body)
+
+      expect(suitable_events.length).to eq events.length
+
+      expect(response.status).to eq 200
+    end
+  end
+
+  context 'hide not available events' do
+    before(:each) do
+      Event.destroy_all
+      User.destroy_all # have to coz something wrong with token generation in spec:/
+      request.headers.merge! user.create_new_auth_token
+    end
+    let(:another_user) { FactoryGirl.create(:user, name: 'debil') }
+
+    it 'index hide event w/o invitation' do
+      FactoryGirl.create(:event, user: user)
+      FactoryGirl.create(:event, user: another_user)
+
+      get :index
+
+      suitable_events = JSON.parse(response.body)
+
+      expect(suitable_events.length).to eq 1
+
+      expect(response.status).to eq 200
+    end
+
+    it 'index show event by invitation' do
+      FactoryGirl.create(:event, user: user)
+      another_event = FactoryGirl.create(:event, user: another_user)
+      FactoryGirl.create(:event_invite, user: user, event: another_event)
+
+      get :index
+
+      suitable_events = JSON.parse(response.body)
+
+      expect(suitable_events.length).to eq 2
+
+      expect(response.status).to eq 200
+    end
+  end
+
 end

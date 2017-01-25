@@ -14,4 +14,6 @@
 
 #= require vue_app/app
 
+#= require main
+
 

@@ -7,8 +7,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    owner?
-    #and invitations
+    owner? || invited?
   end
 
   def update?
@@ -23,5 +22,9 @@ class EventPolicy < ApplicationPolicy
 
   def owner?
     @event.user_id == @user.id
+  end
+
+  def invited?
+    EventInvite.find_by(user_id: @user.id, event_id: @event_id)
   end
 end

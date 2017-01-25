@@ -37,4 +37,12 @@ RSpec.describe Event, type: :model do
       expect(comment).not_to be_valid
     end
   end
+
+  context 'feed' do
+    it 'creates feed' do
+      expect { FactoryGirl.create(:comment, event: event) }.to change(Feed, :count).by(1)
+      feed = Feed.last
+      expect(feed.targetable_type).to eq('Comment')
+    end
+  end
 end

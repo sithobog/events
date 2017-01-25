@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :events
+  has_many :invites, class_name: 'EventInvite'
+  has_many :feeds
 
   def self.from_omniauth(access_token)
       data = access_token.info

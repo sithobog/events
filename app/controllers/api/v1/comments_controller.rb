@@ -3,6 +3,7 @@ class Api::V1::CommentsController < Api::V1::BaseController
 
   def show
     comment = Comment.find(params[:id])
+    authorize comment
 
     render(json: Api::V1::CommentSerializer.new(comment).to_json)
   end
@@ -23,6 +24,7 @@ class Api::V1::CommentsController < Api::V1::BaseController
     event = Event.find(params[:event_id])
     comment = Comment.new(create_params)
     event.comments << comment
+    authorize comment
 
     if comment.valid?
       event.save!
@@ -34,6 +36,7 @@ class Api::V1::CommentsController < Api::V1::BaseController
 
   def update
     comment = Comment.find(params[:id])
+    authorize comment
 
     if comment.update_attributes(update_params)
       render(json: Api::V1::CommentSerializer.new(comment).to_json, status: 200)
@@ -44,6 +47,7 @@ class Api::V1::CommentsController < Api::V1::BaseController
 
   def destroy
     comment = Comment.find(params[:id])
+    authorize comment
     comment.destroy
 
     head status: 204
